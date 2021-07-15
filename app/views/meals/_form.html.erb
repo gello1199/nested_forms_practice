@@ -1,0 +1,31 @@
+<%= form_for @meal do |m| %>
+<%= m.label :name %>
+<%= m.text_field :name %><br>
+
+<%= m.label :ingredients %>
+<%= m.text_field :ingredients %><br>
+
+<%= m.label :price %>
+<%= m.number_field :price, step: 0.01 %><br>
+
+<h3>Pick a Chef</h3>
+<%= m.collection_select :chef_id, Chef.all, :id, :name %>
+
+<h3>Add Chef</h3>
+<%= m.fields_for :chef do |c| %>
+<%= c.label :name %>
+<%= c.text_field :name %><br>
+<%end%>
+
+<h3>Pick a Customer</h3>
+<%= m.collection_radio_buttons :customer_id, Customer.all, :id, :name %>
+
+<h3>Add Customer</h3>
+<%= m.fields_for :customer do |b| %>
+<%= b.label :name %>
+<%= b.text_field :name %><br>
+<%end%>
+
+<%= m.submit %>
+
+<%end%>
