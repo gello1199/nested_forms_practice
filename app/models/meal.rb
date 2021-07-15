@@ -6,5 +6,5 @@ class Meal < ApplicationRecord
 
   accepts_nested_attributes_for :chef, :customer
 
-
+#  just a github check
 end
